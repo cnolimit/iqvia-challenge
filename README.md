@@ -34,6 +34,7 @@ In total ~6 Hours
 
 - Working out the best way to structure components and files to improve readbility
 - Determining the best way to isolate components and thier responsibilities
+- Verifying requirements with testing
 
 ---
 
