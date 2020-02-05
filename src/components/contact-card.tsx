@@ -18,7 +18,8 @@ const useStyles = makeStyles({
     padding: "50px",
     margin: "15px 0",
     alignItems: "center",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
+    cursor: "pointer"
   },
   contactDetails: {
     marginLeft: "15px"
