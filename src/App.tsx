@@ -1,17 +1,19 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { CssBaseline } from "@material-ui/core";
+import React from "react";
+import Contact from "./components/contact";
+import Header from "./components/header";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Contacts</h1>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <Header />
+      {/* <ContactList
+        contacts={[{ name: "Phillip Boateng", email: "phil@mail.com" }]}
+      /> */}
+      <Contact name="Phillip Boateng" email="phil@mail.com" />
+    </React.Fragment>
+  );
+};
 
 export default App;
