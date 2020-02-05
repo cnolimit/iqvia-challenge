@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "name": "Janet Doe",
+      "email": "jane@doe.com",
+      "id": "SZuuoBIHVRYuWGWavPYH2"
+    },
+    {
+      "name": "Phillip",
+      "email": "phil@boateng.com",
+      "id": "BCPRXJ7EMEZai6VOZjE8B"
+    },
+    {
+      "name": "Phillip",
+      "email": "phil@boateng.com",
+      "id": "ItIuEdbaOktkDr_w41UqY"
+    }
+  ]
+}
