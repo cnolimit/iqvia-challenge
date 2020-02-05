@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Link, Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
 
@@ -15,10 +15,14 @@ const useStyles = makeStyles({
     color: "white !important"
   },
   nav: {
-    flexGrow: 1,
+    flexGrow: 0,
     listStyle: "none",
     padding: 0,
-    margin: 0
+    margin: 0,
+    "& a": {
+      color: "white",
+      textDecoration: "none"
+    }
   }
 });
 
@@ -29,6 +33,11 @@ const Header = () => {
       <Toolbar className={classes.header}>
         <Typography variant="h4" className={classes.title}>
           Contacts Manager
+        </Typography>
+        <Typography variant="h6" className={classes.nav}>
+          <Link>
+            <a href="/">HOME</a>
+          </Link>
         </Typography>
       </Toolbar>
     </AppBar>
