@@ -1,18 +1,32 @@
+import { ApolloProvider } from "@apollo/react-hooks";
 import { CssBaseline } from "@material-ui/core";
+import ApolloClient from "apollo-boost";
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Contact from "./components/contact";
-import Header from "./components/header";
+import ContactList from "./components/contact-list";
+import Header from "./components/shared/header";
+
+const client = new ApolloClient({
+  uri: "/"
+});
 
 const App = () => {
   return (
-    <React.Fragment>
+    <ApolloProvider client={client}>
       <CssBaseline />
       <Header />
-      {/* <ContactList
-        contacts={[{ name: "Phillip Boateng", email: "phil@mail.com" }]}
-      /> */}
-      <Contact name="Phillip Boateng" email="phil@mail.com" />
-    </React.Fragment>
+      <Router>
+        <Switch>
+          <Route path="/contact/:id">
+            <Contact />
+          </Route>
+          <Route path="/">
+            <ContactList />
+          </Route>
+        </Switch>
+      </Router>
+    </ApolloProvider>
   );
 };
 
