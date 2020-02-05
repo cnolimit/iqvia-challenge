@@ -45,6 +45,7 @@ const CreateContactDialog = ({
           value={name}
           onChange={e => setName(e.target.value)}
           className={classes.input}
+          inputProps={{ "data-testid": "create-contact-name-field" }}
         />
         <TextField
           error={!email.length}
@@ -54,6 +55,7 @@ const CreateContactDialog = ({
           type="email"
           onChange={e => setEmail(e.target.value)}
           className={classes.input}
+          inputProps={{ "data-testid": "create-contact-email-field" }}
         />
       </div>
     </DialogBox>

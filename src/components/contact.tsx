@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import React, { useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { DELETE_CONTACT, EDIT_CONTACT } from "../constants/mutations";
 import { GET_CONTACT } from "../constants/queries";
 import { getInitials } from "../utils";
@@ -55,7 +55,6 @@ const useStyles = makeStyles({
 
 const Contact = () => {
   const { id } = useParams();
-  const history = useHistory();
 
   const { loading, error, data } = useQuery(GET_CONTACT, {
     variables: { id }
@@ -104,18 +103,24 @@ const Contact = () => {
             <Avatar className={classes.avatar}>
               {getInitials(data.contact.name)}
             </Avatar>
-            <Typography variant="h4">{data.contact.name}</Typography>
-            <Typography variant="subheading">{data.contact.email}</Typography>
+            <Typography variant="h4" data-testid="contact-view-name">
+              {data.contact.name}
+            </Typography>
+            <Typography variant="subheading" data-testid="contact-view-email">
+              {data.contact.email}
+            </Typography>
             <div className={classes.controls}>
               {!editing && (
                 <React.Fragment>
                   <Button
+                    data-testid="contact-view-edit-button"
                     className={classes.button}
                     onClick={() => handleEditToggle(true)}
                   >
                     EDIT
                   </Button>
                   <Button
+                    data-testid="contact-view-delete-button"
                     onClick={() => setDialogToggle(true)}
                     className={classes.button}
                   >
@@ -132,6 +137,7 @@ const Contact = () => {
                 value={editing ? name : data.contact.name}
                 disabled={!editing}
                 onChange={e => setName(e.target.value)}
+                inputProps={{ "data-testid": "contact-view-name-field" }}
               />
               <TextField
                 label="Email"
@@ -139,16 +145,19 @@ const Contact = () => {
                 value={editing ? email : data.contact.email}
                 disabled={!editing}
                 onChange={e => setEmail(e.target.value)}
+                inputProps={{ "data-testid": "contact-view-email-field" }}
               />
               {editing && (
                 <div className={classes.editingButtonsWrapper}>
                   <Button
+                    data-testid="contact-view-cancel-button"
                     className={`${classes.editingButton} ${classes.button}`}
                     onClick={() => handleEditToggle(false)}
                   >
                     Cancel
                   </Button>
                   <Button
+                    data-testid="contact-view-save-button"
                     className={`${classes.editingButton} ${classes.button}`}
                     onClick={() => handleSave()}
                   >

@@ -34,12 +34,12 @@ interface IContactCard extends IContact {
   onClick: () => void;
 }
 
-const ContactCard = ({ email, name, onClick }: IContactCard) => {
+const ContactCard = ({ email, name, onClick, ...props }: IContactCard) => {
   const classes = useStyles();
   const initials = getInitials(name);
 
   return (
-    <Card className={classes.contactCard} onClick={onClick}>
+    <Card className={classes.contactCard} onClick={onClick} {...props}>
       <Avatar>{initials}</Avatar>
       <div className={classes.contactDetails}>
         <Typography variant="h5">{name}</Typography>

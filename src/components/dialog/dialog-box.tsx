@@ -21,10 +21,16 @@ const DialogBox = ({
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
         {children}
-        <Button onClick={() => onCancel()} style={{ color: "red" }}>
+        <Button
+          data-testid="dialog-cancel-button"
+          onClick={() => onCancel()}
+          style={{ color: "red" }}
+        >
           CANCEL
         </Button>
-        <Button onClick={() => onSubmit()}>SUBMIT</Button>
+        <Button data-testid="dialog-submit-button" onClick={() => onSubmit()}>
+          SUBMIT
+        </Button>
       </DialogContent>
     </Dialog>
   );

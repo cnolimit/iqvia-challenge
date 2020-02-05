@@ -62,20 +62,24 @@ const ContactList = () => {
           <div className={classes.header}>
             <Typography variant="h3">Contacts</Typography>
             <Button
+              data-testid="create-contact-button"
               className={classes.button}
               onClick={() => setDialogToggle(true)}
             >
               CREATE
             </Button>
           </div>
-          {data.contacts.map((contact: IContact) => (
-            <ContactCard
-              key={contact.id}
-              name={contact.name}
-              email={contact.email}
-              onClick={() => history.push(`/contact/${contact.id}`)}
-            />
-          ))}
+          <div id="contact-list-container">
+            {data.contacts.map((contact: IContact, idx: number) => (
+              <ContactCard
+                key={contact.id}
+                name={contact.name}
+                email={contact.email}
+                data-testid={`${idx}-contact-card`}
+                onClick={() => history.push(`/contact/${contact.id}`)}
+              />
+            ))}
+          </div>
         </React.Fragment>
       )}
     </Container>
